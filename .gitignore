@@ -1,0 +1,8 @@
+# Compiled
+*.elc
+
+# Temporary
+*~
+
+# Specific files
+config.el

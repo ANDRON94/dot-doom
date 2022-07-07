@@ -1,0 +1,51 @@
+* Layers
+** Appearance
+*** Theme
+An opinionated pack of [[https://github.com/hlissner/emacs-doom-themes][modern color-themes.]]
+#+begin_src emacs-lisp :tangle yes
+(setq doom-theme 'doom-one)
+#+end_src
+*** Line numbers
+[[https://www.gnu.org/software/emacs/manual/html_node/emacs/Display-Custom.html][Display line numbers.]]
+ #+begin_src emacs-lisp :tangle yes
+(use-package! display-line-numbers
+  :config
+  ;; Set default type of line numbers to be `relative'.
+  ;; (i.e. the number of the line relative to the line showing
+  ;; the window’s point).
+  (setq display-line-numbers-type 'relative))
+ #+end_src
+*** Keybindings help
+Emacs package that displays [[https://github.com/justbur/emacs-which-key][available keybindings]] in popup.
+#+begin_src emacs-lisp :tangle yes
+(use-package! which-key
+  :config
+  (setq which-key-allow-imprecise-window-fit nil))
+#+end_src
+** Edit
+*** General
+**** Always allow region narrowing
+[[https://www.gnu.org/software/emacs/manual/html_node/emacs/Narrowing.html][Narrowing.]]
+#+begin_src emacs-lisp :tangle yes
+(put 'narrow-to-region 'disabled nil)
+#+end_src
+** Project management
+*** Organizer
+[[http://orgmode.org/][Keeping notes, maintaining TODO lists, planning projects.]]
+#+begin_src emacs-lisp :tangle yes
+(use-package! org
+  :config
+  ;; Directory with org files.
+  (setq org-directory "~/org/"))
+#+end_src
+** Languages
+*** C#
+Emacs package for [[https://github.com/elizagamedev/unity.el][integration with Unity]] game engine.
+#+begin_src emacs-lisp :tangle yes
+(use-package! unity
+  :when (featurep! :lang csharp +unity)
+  :hook ((after-init . unity-build-code-shim)
+         (after-init . unity-setup))
+  :config
+  (setq unity-var-directory (expand-file-name "unity/" doom-etc-dir)))
+#+end_src
