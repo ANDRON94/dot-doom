@@ -1,0 +1,12 @@
+* Introduction
+It's yet another custom Emacs configuration =)
+I hope, it will be a helpful starting point for an Emacs beginner.
+The [[file:config.org][configuration file]] is written in a [[https://en.wikipedia.org/wiki/Literate_programming][literate way]]
+which means that it's also a [[file:config.org][documentation file]]=)
+*  How To
+** Learn Emacs
+*** Useful links
++ [[https://github.com/emacs-tw/awesome-emacs][(!)Awesome Emacs]] is a community driven list of useful Emacs packages,
+  libraries and others.
++ [[https://www.gnu.org/software/emacs/manual/html_node/emacs/index.html][Emacs Manual]] is an official online manual.
++ [[https://www.emacswiki.org/][EmacsWiki]] is the collection of tutorials, source code, question and answers.
