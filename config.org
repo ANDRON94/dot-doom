@@ -49,3 +49,9 @@ Emacs package for [[https://github.com/elizagamedev/unity.el][integration with U
   :config
   (setq unity-var-directory (expand-file-name "unity/" doom-etc-dir)))
 #+end_src
+*** Thrift
+[[https://github.com/facebook/fbthrift][Thrift IDL support.]]
+#+begin_src emacs-lisp :tangle yes
+(use-package! thrift
+  :mode ("\\.thrift\\'" . thrift-mode))
+#+end_src
