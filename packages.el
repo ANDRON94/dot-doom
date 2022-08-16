@@ -60,3 +60,7 @@
 
 (when (featurep! :tools magit)
   (package! magit-lfs))
+
+(when (featurep! :lang cc +lsp)
+  ;; Use default LSP `clangd' server instead of `ccls'.
+  (disable-packages! ccls))
