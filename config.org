@@ -61,6 +61,22 @@ Emacs package for [[https://github.com/elizagamedev/unity.el][integration with U
 (use-package! python
   :hook ((python-mode . my--python-flycheck-setup)))
 #+end_src
+*** Racket
+#+begin_src emacs-lisp :tangle yes
+(defun my--remove-racket-xp-annotations ()
+  (remove-hook 'pre-redisplay-functions
+               #'racket-xp-pre-redisplay
+               t))
+
+(defun my--use-eww-browser-advice (orig &rest args)
+  (let ((browse-url-browser-function #'eww-browse-url))
+    (apply orig args)))
+
+(use-package! racket-mode
+  :hook ((racket-xp-mode . my--remove-racket-xp-annotations))
+  :config
+  (advice-add 'racket-browse-url :around #'my--use-eww-browser-advice))
+#+end_src
 *** Thrift
 [[https://github.com/facebook/fbthrift][Thrift IDL support.]]
 #+begin_src emacs-lisp :tangle yes
