@@ -53,13 +53,13 @@ Emacs package for [[https://github.com/elizagamedev/unity.el][integration with U
 [[https://github.com/emacs-mirror/emacs/blob/master/lisp/progmodes/python.el][Python support.]]
 [[https://flake8.pycqa.org/en/latest/][Flake8]] [[https://www.reddit.com/r/emacs/comments/wa7iwz/lsp_with_pyright_and_flake8/][integration]] with LSP.
 #+begin_src emacs-lisp :tangle yes
-(defun my--python-flycheck-setup ()
+(defun my--configure-python-flycheck ()
   (when (and (modulep! :lang python +lsp)
              (modulep! :checkers syntax))
     (flycheck-select-checker 'python-flake8)))
 
 (use-package! python
-  :hook ((python-mode . my--python-flycheck-setup)))
+  :hook ((python-mode . my--configure-python-flycheck)))
 #+end_src
 *** Racket
 #+begin_src emacs-lisp :tangle yes
