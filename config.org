@@ -43,7 +43,7 @@ Emacs package that displays [[https://github.com/justbur/emacs-which-key][availa
 Emacs package for [[https://github.com/elizagamedev/unity.el][integration with Unity]] game engine.
 #+begin_src emacs-lisp :tangle yes
 (use-package! unity
-  :when (featurep! :lang csharp +unity)
+  :when (modulep! :lang csharp +unity)
   :hook ((after-init . unity-build-code-shim)
          (after-init . unity-setup))
   :config

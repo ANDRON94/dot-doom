@@ -49,19 +49,19 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-(when (featurep! :lang csharp)
+(when (modulep! :lang csharp)
   (package! font-lock-ext
     :recipe (:host github :repo "sensorflo/font-lock-ext")))
 
-(when (featurep! :lang csharp +unity)
+(when (modulep! :lang csharp +unity)
   (package! unity
     :recipe (:host github :repo "elizagamedev/unity.el"
              :files ("*.el" "*.c"))))
 
-(when (featurep! :tools magit)
+(when (modulep! :tools magit)
   (package! magit-lfs))
 
-(when (featurep! :lang cc +lsp)
+(when (modulep! :lang cc +lsp)
   ;; Use default LSP `clangd' server instead of `ccls'.
   (disable-packages! ccls))
 
