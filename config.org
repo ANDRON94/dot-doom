@@ -62,6 +62,7 @@ Emacs package for [[https://github.com/elizagamedev/unity.el][integration with U
   :hook ((python-mode . my--configure-python-flycheck)))
 #+end_src
 *** Racket
+Emacs [[https://www.racket-mode.com/][major and minor modes for Racket]]: edit, REPL, check-syntax, debug, profile, and more.
 #+begin_src emacs-lisp :tangle yes
 (defun my--remove-racket-xp-annotations ()
   (remove-hook 'pre-redisplay-functions
@@ -76,6 +77,15 @@ Emacs package for [[https://github.com/elizagamedev/unity.el][integration with U
   :hook ((racket-xp-mode . my--remove-racket-xp-annotations))
   :config
   (advice-add 'racket-browse-url :around #'my--use-eww-browser-advice))
+#+end_src
+*** Rust
+[[https://github.com/brotzeit/rustic][Rust development environment]] for Emacs.
+#+begin_src emacs-lisp :tangle yes
+(use-package! rustic
+  :init
+  (map! :map rustic-mode-map
+        :localleader
+        :desc "rerun" "t r" #'rustic-cargo-test-rerun))
 #+end_src
 *** Thrift
 [[https://github.com/facebook/fbthrift][Thrift IDL support.]]
