@@ -93,3 +93,8 @@ Emacs [[https://www.racket-mode.com/][major and minor modes for Racket]]: edit, 
 (use-package! thrift
   :mode ("\\.thrift\\'" . thrift-mode))
 #+end_src
+** Tools
+*** Version control
+#+begin_src emacs-lisp :tangle yes
+(use-package! magit-lfs)
+#+end_src
