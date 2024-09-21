@@ -29,6 +29,19 @@ Emacs package that displays [[https://github.com/justbur/emacs-which-key][availa
 #+begin_src emacs-lisp :tangle yes
 (put 'narrow-to-region 'disabled nil)
 #+end_src
+**** Copilot
+[[https://github.com/copilot-emacs/copilot.el][Copilot plugin]] for Emacs.
+#+begin_src emacs-lisp :tangle yes
+(use-package! copilot
+  :hook (prog-mode . copilot-mode)
+  :bind (:map copilot-completion-map
+              ("<tab>" . 'copilot-accept-completion)
+              ("TAB" . 'copilot-accept-completion)
+              ("C-TAB" . 'copilot-accept-completion-by-word)
+              ("C-<tab>" . 'copilot-accept-completion-by-word))
+  :config
+  (setq copilot-max-char -1))
+#+end_src
 ** Project management
 *** Organizer
 [[http://orgmode.org/][Keeping notes, maintaining TODO lists, planning projects.]]
